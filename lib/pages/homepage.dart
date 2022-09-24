@@ -11,23 +11,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-    int days = 32;
+  int days = 32;
   String name = "Bbek";
   double pi = 3.14;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      title: Center(child: Text("CatalogApp")),
-    ),
-    body: Center(
-      child: Container(
-        child: Text("Welcome to the $days of flutter by $name", style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Center(child: Text("CatalogApp")),
       ),
-    ),
-    drawer: Drawer(),
+      body: Center(
+        child: Container(
+          child: Text(
+            "Welcome to the $days of flutter by $name",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+      drawer: Drawer(),
     );
-    
   }
 }
