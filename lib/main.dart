@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         
       ),
-      initialRoute: "/home",
+      // initialRoute: "/home",
       //for moving from the pages to pages 
       routes: {
         "/":(context) => LoginPage(),
