@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         
       ),
-      // initialRoute: "/home",
+      initialRoute:MyRoutes.homeRoute ,
       //for moving from the pages to pages 
       routes: {
         "/":(context) => LoginPage(),

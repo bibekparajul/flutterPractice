@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+
+import '../widgets/drawer.dart';
 //ignore_for_file:prefer_const_constructors
 
 class HomePage extends StatefulWidget {
@@ -28,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
