@@ -17,19 +17,25 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: HomePage(),
       themeMode: ThemeMode.light,
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: ThemeData(
+          primarySwatch: Colors.purple,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.white,
+            elevation: 0.0,
+            iconTheme: IconThemeData(color: Colors.black),
+            // ignore: deprecated_member_use
+            textTheme: Theme.of(context).textTheme
+          )),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        
       ),
-      initialRoute:MyRoutes.homeRoute ,
-      //for moving from the pages to pages 
+      initialRoute: MyRoutes.homeRoute,
+      //for moving from the pages to pages
       routes: {
-        "/":(context) => LoginPage(),
-        MyRoutes.homeRoute:(context) => HomePage(),
-        MyRoutes.loginRoute:(context) => LoginPage()
+        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage()
       },
-
     );
   }
 }

@@ -41,6 +41,7 @@ class MyDrawer extends StatelessWidget {
               leading: Icon(
                 Icons.mail,
                 color: Colors.white,
+                
               ),
               title: Text("Email",textScaleFactor: 1.2, style: TextStyle( color: Colors.white),),
             ),

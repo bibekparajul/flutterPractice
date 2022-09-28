@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_catalog/models/catalog.dart';
 
 import '../widgets/drawer.dart';
+import '../widgets/item_widget.dart';
 //ignore_for_file:prefer_const_constructors
 
 class HomePage extends StatefulWidget {
@@ -18,16 +20,27 @@ class _HomePageState extends State<HomePage> {
   double pi = 3.14;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+      final dummyList = List.generate(30, (index) => CatalogModel.items[0]);
+    
+        return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("CatalogApp")),
+        title: Center(
+            child: Text(
+          "CatalogApp",
+          style: TextStyle(color: Colors.black),
+        )),
       ),
-      body: Center(
-        child: Container(
-          child: Text(
-            "Welcome to the $days of flutter by $name",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+
+      //items form items_widget fiile
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: ListView.builder(
+          itemCount: dummyList.length,                //instead we use itemCount:CatalogModel.items.length,
+          itemBuilder: (context, index) {             //itemBuilder:        
+            return ItemWidget(
+              item: dummyList[index],                 //item: Catalog.items[index]    
+            );
+          },
         ),
       ),
       drawer: MyDrawer(),
