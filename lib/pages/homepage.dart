@@ -55,16 +55,44 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            ? ListView.builder(
-                itemCount: CatalogModel.items
-                    .length, //instead we use itemCount:CatalogModel.items.length,
-                itemBuilder: (context, index) {
-                  //itemBuilder:
-                  return ItemWidget(
-                    item:
-                        CatalogModel.items[index], //item: Catalog.items[index]
-                  );
-                },
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20),
+                itemBuilder: ((context, index) {
+                  final item = CatalogModel.items[index];
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      child: GridTile(
+                        header: Container(
+                          padding: const EdgeInsets.all(12),
+                          // ignore: sort_child_properties_last
+                          child: Text(
+                            item.name,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.purple,
+                          ),
+                        ),
+                        child: Image.network(item.image),
+                        footer: Container(
+                          padding: const EdgeInsets.all(12),
+                          // ignore: sort_child_properties_last
+                          child: Text(
+                            item.price.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ));
+                }),
+                itemCount: CatalogModel.items.length,
               )
             : Center(
                 child: CircularProgressIndicator(),
