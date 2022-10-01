@@ -15,13 +15,13 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
+        final catalog = CatalogModel.getByPosition(index);           //this method is called here from catalog.dart
         return InkWell(
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomeDetailPage(catalog: catalog),
+                  builder: (context) => HomeDetailPage(catalog: catalog),  
                 ),
               );
             },
