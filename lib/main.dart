@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/core/store.dart';
 import 'package:flutter_catalog/pages/cart_page.dart';
 import 'package:flutter_catalog/pages/loginpage.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import 'pages/homepage.dart';
 
 //ignore_for_file:prefer_const_constructors
 
 void main() {
-  runApp(MyApp());
+  runApp(VxState(                             //myapp lai VxState le wrap garney
+    store: MyStore(),
+    child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
